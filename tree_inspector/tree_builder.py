@@ -75,7 +75,7 @@ class TreeBuilder:
         if obj.size < self.options.max_size_to_show_in_numpy_ndarray:
             value = str(obj)
         else:
-            value = f'Max: {obj.max()}\nMin: {obj.min()}\nMean: {obj.mean()}'
+            value = f'Too many values to show. The first one is: {obj.flat[0]}'
         return TreeNode(name=name,
                         short_type=f'ndarray[{obj.dtype}], Shape {obj.shape}',
                         full_type=f'numpy.ndarray[{obj.dtype}], Shape {obj.shape}',
