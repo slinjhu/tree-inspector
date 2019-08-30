@@ -15,7 +15,7 @@ pip install tree-inspector
 Using Tree Inspector is even simpler.
 
 ```python
-from tree_inspector.tree_builder import dump_tree_to_file
+from tree_inspector import dump_tree_to_file
 
 dump_tree_to_file('Name', any_object, '/tmp/outfile.html')
 ```
