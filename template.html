@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css">
+
+
+    <title>{{ name }}</title>
+    <script>
+
+        $(function(){
+            // TODO: not sure why opening and closing a node will break tooltip.
+            $('#jstree').on("open_node.jstree", (e, data) => {
+                $('[data-toggle="tooltip"]').tooltip();
+            }).on("close_node.jstree", (e, data) => {
+                $('[data-toggle="tooltip"]').tooltip();
+            }).jstree({
+                "core" : {
+                    "animation" : 1,
+                    "themes" : {
+                        "stripes" : true,
+                        "icons": false
+                    }
+                },
+                "plugins" : ["state", "wholerow", "changed"]
+            });
+        });
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <style>
+        .field {
+            font-family: monospace;
+        }
+        body {
+            padding: 15px;
+        }
+        .name {
+            color: darkred;
+            font-weight: bold;
+        }
+        .type {
+            color: darkgreen;
+        }
+        .type:before {
+            content: " : ";
+        }
+        .value {
+            color: chocolate;
+        }
+        .value:before {
+            content: " = ";
+        }
+    </style>
+</head>
+<body>
+<h2>Instructions</h2>
+This is a Python object inspector. Information is color-coded:
+<ul>
+    <li class="name">Field name, list index, or dict key</li>
+    <li class="value">Value or summary of a variable.</li>
+    <li class="type">Type of a variable. Mouse hover will show full type with module name</li>
+</ul>
+
+
+{% macro span_segment(kind, short_content, content) -%}
+{% if short_content %}
+<span class="{{kind}}" data-toggle="tooltip" data-html="true" title="<b>{{kind}}</b> <pre>{{content | e}}</pre>">
+            {{short_content | e}}
+        </span>
+{% endif %}
+{%- endmacro %}
+
+{% macro li_node(nd) -%}
+<li class="field jstree-open">
+    {{ span_segment("name", nd.name, nd.name) }}
+    {{ span_segment("type", nd.short_type, nd.full_type) }}
+    {{ span_segment("value", nd.value, nd.value) }}
+    <ul>
+        {% for c in nd.children %}
+        {{li_node(c)}}
+        {% endfor %}
+    </ul>
+</li>
+{%- endmacro %}
+
+
+<h2>{{ name }}</h2>
+<div id="jstree">
+    <ul>
+        {{li_node(node)}}
+    </ul>
+
+</div>
+</body>
+</html>

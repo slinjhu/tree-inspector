@@ -1,0 +1,6 @@
+env/
+*.pyc
+out.html
+
+.idea/
+.vscode
