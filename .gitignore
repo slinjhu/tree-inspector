@@ -1,6 +1,12 @@
 env/
 *.pyc
 out.html
+*.egg-info/
 
 .idea/
 .vscode
+
+build/
+dist/
+
+.DS_Store

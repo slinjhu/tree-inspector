@@ -1,4 +1,4 @@
-from tree_builder import dump_tree
+from tree_inspector.tree_builder import dump_tree_to_file
 from dataclasses import dataclass
 from enum import Enum, auto
 import numpy
@@ -33,4 +33,4 @@ class SampleClass:
 
 if __name__ == '__main__':
     sample = SampleClass()
-    dump_tree('sample', sample, 'out.html')
+    dump_tree_to_file('sample', sample, 'out.html')

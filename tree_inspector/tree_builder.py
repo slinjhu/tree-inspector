@@ -1,8 +1,9 @@
 from jinja2 import Template
-from options import Options
+from tree_inspector.options import Options
 from typing import Any, List, NamedTuple, Dict
 import numpy
 import enum
+import os
 
 
 def get_type_name(o):
@@ -99,8 +100,9 @@ class TreeBuilder:
             return self.node_class(name, obj)
 
 
-def dump_tree(name, obj, outfile, options: Options = Options()):
-    template_file = 'template.html'
+def dump_tree_to_file(name, obj, outfile, options: Options = Options()):
+    pwd = os.path.dirname(os.path.abspath(__file__))
+    template_file = os.path.join(pwd, 'template.html')
     tree_builder = TreeBuilder(options)
     node = tree_builder.node(name, obj)
     with open(template_file, 'r') as tf:
