@@ -11,6 +11,7 @@ class TestFile(unittest.TestCase):
 
         dump_tree_to_file(obj, outfile)
         self.assertTrue(os.path.exists(outfile))
+        print(outfile)
 
 
 if __name__ == '__main__':

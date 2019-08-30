@@ -2,7 +2,6 @@ from tree_inspector.tree_builder import TreeBuilder
 import unittest
 from typing import NamedTuple
 import uuid
-import numpy
 
 
 class Dummy(NamedTuple):
@@ -34,8 +33,6 @@ class TestClass(unittest.TestCase):
         self.check_node(int)
         self.check_node(type)
         self.check_node(range(18))
-        self.check_node(numpy.array(range(1000)))
-        self.check_node(numpy.zeros([5, 2, 3]))
         self.check_node(self)
 
     def check_node(self, obj):

@@ -7,7 +7,10 @@ import enum
 def get_type_name(o):
     short = o.__class__.__name__
     module = o.__class__.__module__
-    return short, module + '.' + short
+    if module == 'numpy' and short == 'void':
+        return o.dtype, o.dtype
+    else:
+        return short, module + '.' + short
 
 
 def is_primitive(obj: Any) -> bool:
@@ -22,6 +25,7 @@ class TreeNode(NamedTuple):
     full_type: str
     value: str = 'value not given'
     children: List['TreeNode'] = []
+    open: bool = False
 
     @staticmethod
     def simple(name: str, obj: Any) -> 'TreeNode':
@@ -61,25 +65,23 @@ class TreeBuilder:
                             value=f'Size {len(obj)}', children=children)
 
     def _node_class(self, name: str, obj: Any) -> TreeNode:
-        short_type, full_type = get_type_name(obj)
         if hasattr(obj, '__dict__'):
-            children = [self.node(str(k), v) for k, v in obj.__dict__.items()]
-            value = f'{len(obj.__dict__)} fields'
+            short_type, full_type = get_type_name(obj)
+            return TreeNode(name=name,
+                            short_type=short_type,
+                            full_type=full_type,
+                            value=f'{len(obj.__dict__)} fields',
+                            children=[self.node(str(k), v) for k, v in obj.__dict__.items()],
+                            open=True)
         else:
-            children = []
-            value = str(obj)
-
-        return TreeNode(name=name, short_type=short_type, full_type=full_type, value=value, children=children)
+            return TreeNode.simple(name, obj)
 
     def _node_numpy_ndarray(self, name: str, obj: numpy.ndarray) -> TreeNode:
-        if obj.size < self.options.max_size_to_show_in_numpy_ndarray:
-            value = str(obj)
-        else:
-            value = f'Too many values to show. The first one is: {obj.flat[0]}'
         return TreeNode(name=name,
-                        short_type=f'ndarray[{obj.dtype}], Shape {obj.shape}',
-                        full_type=f'numpy.ndarray[{obj.dtype}], Shape {obj.shape}',
-                        value=value)
+                        short_type=f'ndarray[{obj.dtype}]',
+                        full_type=f'numpy.ndarray[{obj.dtype}]',
+                        value=str(obj) if obj.size == 0 else f'Shape {obj.shape}',
+                        children=[self.node(str(i), obj[i]) for i in range(0, obj.shape[0]) if i < self.options.max_elements_to_show_in_list])
 
     def node(self, name: str, obj: Any) -> TreeNode:
         """
