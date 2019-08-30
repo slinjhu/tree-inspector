@@ -58,6 +58,8 @@
         }
         .tooltip-inner {
             min-width: 500px;
+            font-family: monospace;
+            text-align: left;
         }
     </style>
 </head>
@@ -73,9 +75,12 @@ This is a Python object inspector. Information is color-coded:
 
 {% macro span_segment(kind, short_content, content) -%}
 {% if short_content %}
-<span class="{{kind}}" data-toggle="tooltip" data-html="true" title="<b>{{kind}}</b> <pre>{{content | e}}</pre>">
+<span class="{{kind}}"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="{{kind}}: {{content | e}}">
             {{short_content | e}}
-        </span>
+</span>
 {% endif %}
 {%- endmacro %}
 
