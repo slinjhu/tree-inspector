@@ -2,7 +2,9 @@
 
 Tree Inspector is a package to inspect generic Python object interactively as a tree structure.
 
-![Sample](docs/Sample.png)
+![Sample](https://slinjhu.github.io/tree-inspector/docs/Sample.png)
+
+Try the [sample html page](https://slinjhu.github.io/tree-inspector/docs/Sample.index)
 
 ## Install
 It is very simple to install Tree Inspector. Just do
