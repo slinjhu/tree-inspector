@@ -4,11 +4,11 @@ from os import path
 
 pwd = path.abspath(path.dirname(__file__))
 
-with open(path.join(pwd, 'Readme.md'), encoding='utf-8') as f:
+with open(path.join(pwd, 'docs/Readme.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(name='tree-inspector',
-      version='2.0.2',
+      version='2.0.3',
       python_requires='>=3.7.0',
       description='Inspect a Python object with an interactive tree view',
       url='https://github.com/slinjhu/tree-inspector',
