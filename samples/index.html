@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css">
+
+
+    <title>object</title>
+    <script>
+
+        $(function(){
+            // TODO: not sure why opening and closing a node will break tooltip.
+            $('#jstree').on("open_node.jstree", (e, data) => {
+                $('[data-toggle="tooltip"]').tooltip();
+            }).on("close_node.jstree", (e, data) => {
+                $('[data-toggle="tooltip"]').tooltip();
+            }).jstree({
+                "core" : {
+                    "animation" : 1,
+                    "themes" : {
+                        "stripes" : true,
+                        "icons": false
+                    }
+                },
+                "plugins" : ["state", "wholerow", "changed"]
+            });
+        });
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <style>
+        .field {
+            font-family: monospace;
+        }
+        body {
+            padding: 15px;
+        }
+        .name {
+            color: darkred;
+            font-weight: bold;
+        }
+        .type {
+            color: darkgreen;
+        }
+        .type:before {
+            content: " : ";
+        }
+        .value {
+            color: chocolate;
+        }
+        .value:before {
+            content: " = ";
+        }
+        .tooltip-inner {
+            min-width: 500px;
+            font-family: monospace;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<h2>Instructions</h2>
+This is a Python object inspector. Information is color-coded:
+<ul>
+    <li class="name">Field name, list index, or dict key</li>
+    <li class="value">Value or summary of a variable.</li>
+    <li class="type">Type of a variable. Mouse hover will show full type with module name</li>
+</ul>
+
+Use this to inspect any of your Python object:
+<a href="https://pypi.org/project/tree-inspector" target="_blank">https://pypi.org/project/tree-inspector</a>
+
+
+
+
+
+
+
+<h2>object</h2>
+<div id="jstree">
+    <ul>
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: object">
+            object
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: dict">
+            dict
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: Size 5">
+            Size 5
+</span>
+
+    <ul>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: a">
+            a
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: list[builtins.int]">
+            list[int]
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: Length 8">
+            Length 8
+</span>
+
+    <ul>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 0">
+            0
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: builtins.int">
+            int
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 1">
+            1
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 1">
+            1
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: builtins.int">
+            int
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 2">
+            2
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 2">
+            2
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: builtins.int">
+            int
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 3">
+            3
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 3">
+            3
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: builtins.int">
+            int
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 4">
+            4
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 4">
+            4
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: builtins.int">
+            int
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 5">
+            5
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-open">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: b">
+            b
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: uuid.UUID">
+            UUID
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 2 fields">
+            2 fields
+</span>
+
+    <ul>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: int">
+            int
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: builtins.int">
+            int
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 177849866128552818892444041297605297887">
+            177849866128552818892444041297605297887
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: is_safe">
+            is_safe
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: uuid.SafeUUID">
+            SafeUUID
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: SafeUUID.unknown">
+            SafeUUID.unknown
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: plain_numpy_array">
+            plain_numpy_array
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.ndarray[int64]">
+            ndarray[int64]
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: Shape (2, 10)">
+            Shape (2, 10)
+</span>
+
+    <ul>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 0">
+            0
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.ndarray[int64]">
+            ndarray[int64]
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: Shape (10,)">
+            Shape (10,)
+</span>
+
+    <ul>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 0">
+            0
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.int64">
+            int64
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 0">
+            0
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 1">
+            1
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.int64">
+            int64
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 1">
+            1
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 2">
+            2
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.int64">
+            int64
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 2">
+            2
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 3">
+            3
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.int64">
+            int64
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 3">
+            3
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 4">
+            4
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.int64">
+            int64
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 4">
+            4
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 1">
+            1
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.ndarray[int64]">
+            ndarray[int64]
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: Shape (10,)">
+            Shape (10,)
+</span>
+
+    <ul>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 0">
+            0
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.int64">
+            int64
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 0">
+            0
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 1">
+            1
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.int64">
+            int64
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 1">
+            1
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 2">
+            2
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.int64">
+            int64
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 2">
+            2
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 3">
+            3
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.int64">
+            int64
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 3">
+            3
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 4">
+            4
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.int64">
+            int64
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: 4">
+            4
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+    </ul>
+</li>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: fancy_numpy_array">
+            fancy_numpy_array
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: numpy.ndarray[[(&#39;name&#39;, &#39;&lt;U16&#39;), (&#39;grades&#39;, &#39;&lt;f8&#39;, (2,))]]">
+            ndarray[[(&#39;name&#39;, &#39;&lt;U16&#39;), (&#39;grades&#39;, &#39;&lt;f8&#39;, (2,))]]
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: Shape (2,)">
+            Shape (2,)
+</span>
+
+    <ul>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 0">
+            0
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: [(&#39;name&#39;, &#39;&lt;U16&#39;), (&#39;grades&#39;, &#39;&lt;f8&#39;, (2,))]">
+            [(&#39;name&#39;, &#39;&lt;U16&#39;), (&#39;grades&#39;, &#39;&lt;f8&#39;, (2,))]
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: (&#39;Sarah&#39;, [8., 7.])">
+            (&#39;Sarah&#39;, [8., 7.])
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: 1">
+            1
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: [(&#39;name&#39;, &#39;&lt;U16&#39;), (&#39;grades&#39;, &#39;&lt;f8&#39;, (2,))]">
+            [(&#39;name&#39;, &#39;&lt;U16&#39;), (&#39;grades&#39;, &#39;&lt;f8&#39;, (2,))]
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: (&#39;John&#39;, [6., 7.])">
+            (&#39;John&#39;, [6., 7.])
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+    </ul>
+</li>
+        
+        <li class="field jstree-close">
+    
+<span class="name"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="name: some_tuple">
+            some_tuple
+</span>
+
+    
+<span class="type"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="type: builtins.tuple">
+            tuple
+</span>
+
+    
+<span class="value"
+      data-toggle="tooltip"
+      data-html="false"
+      data-title="value: (&#39;Hello&#39;, &#39;World&#39;, 2019)">
+            (&#39;Hello&#39;, &#39;World&#39;, 2019)
+</span>
+
+    <ul>
+        
+    </ul>
+</li>
+        
+    </ul>
+</li>
+    </ul>
+
+</div>
+</body>
+</html>
