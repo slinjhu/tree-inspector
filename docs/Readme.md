@@ -19,7 +19,7 @@ Using Tree Inspector is even simpler.
 ```python
 from tree_inspector import dump_tree_to_file
 
-dump_tree_to_file('Name', any_object, '/tmp/outfile.html')
+dump_tree_to_file(any_object, '/tmp/outfile.html', name='Optional Name')
 ```
 
 ## Configuring the tree view
