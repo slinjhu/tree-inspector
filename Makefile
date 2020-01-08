@@ -6,7 +6,7 @@ PY=env/bin/python
 
 env:
 	rm -rf env
-	python3.7 -m venv env
+	python3 -m venv env
 	${PIP} install -U pip setuptools wheel
 	${PIP} install -e .
 	${PIP} install twine uuid

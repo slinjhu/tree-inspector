@@ -1,11 +1,12 @@
-from tree_inspector.tree_builder import TreeBuilder
 import unittest
-from enum import Enum, auto
+from enum import Enum
+
+from tree_inspector.tree_builder import TreeBuilder
 
 
 class Dummy(Enum):
-    A = auto()
-    B = auto()
+    A = 1
+    B = 2
 
 
 class TestPrimitiveTypes(unittest.TestCase):

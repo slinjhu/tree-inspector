@@ -1,8 +1,10 @@
-from tree_inspector import dump_tree_to_file
-import unittest
 import os
-import uuid
+import unittest
+
 import numpy
+import uuid
+
+from tree_inspector import dump_tree_to_file
 
 
 class SampleClass:
@@ -23,7 +25,7 @@ class TestFile(unittest.TestCase):
     def test_write(self):
 
         obj = SampleClass()
-        outfile = f'/tmp/{uuid.uuid4()}.html'
+        outfile = '/tmp/{}.html'.format(uuid.uuid4())
 
         dump_tree_to_file(obj, outfile)
         self.assertTrue(os.path.exists(outfile))

@@ -1,21 +1,16 @@
-from tree_inspector.tree_builder import TreeBuilder
 import unittest
-from typing import NamedTuple
+
 import uuid
 
-
-class Dummy(NamedTuple):
-    a: str = 'anything'
-    b: int = 1289
-    c: bool = False
+from tree_inspector.tree_builder import TreeBuilder
 
 
 class TestClass(unittest.TestCase):
     def test_class_without_dict(self):
-        dummy = Dummy()
-        self.assertFalse(hasattr(dummy, '__dict__'))
+        obj = (4, 8)
+        self.assertFalse(hasattr(obj, '__dict__'))
 
-        node = TreeBuilder().node('dummy', dummy)
+        node = TreeBuilder().node('dummy', obj)
         self.assertEqual(len(node.children), 0)
 
     def test_regular_class(self):
@@ -44,7 +39,7 @@ class TestClass(unittest.TestCase):
 
 class RegularClass:
     def __init__(self):
-        self.dummy = Dummy()
+        self.dummy = 7
 
     def add_fields(self):
         self.extra = 'random string'
